@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../assets/dianbridge-logo.jpg'; // Ajusta el nombre si es diferente
+import logo from '../assets/dianbridge-logo.png'; // Ajusta el nombre si es diferente
 
 function Navbar() {
   const [open, setOpen] = useState(false);
