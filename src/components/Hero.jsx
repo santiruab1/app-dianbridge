@@ -47,7 +47,7 @@ export default function Hero() {
                 </div>
                 {/* Imagen destacada */}
                 <img src={UI} alt="User Interface DianBridge" 
-                className="w-full h-40 sm:h-[300px] md:h-[525px] mt-10 rounded-2xl shadow-lg bg-cover bg-center"
+                className="w-full h-40 sm:h-[300px] md:h-[525px] mt-10 bg-cover bg-center"
                 />
                 
             </div>
