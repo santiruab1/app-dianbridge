@@ -12,7 +12,7 @@ const tiers = [
       "Email support",
     ],
     buttonText: "Sign up for free",
-    buttonStyle: "border-blue-600 text-blue-600 hover:bg-blue-50",
+    buttonStyle: "border-primary text-primary hover:bg-primary-light",
     buttonType: "outline",
   },
   {
@@ -28,7 +28,7 @@ const tiers = [
       "Best deals",
     ],
     buttonText: "Start now",
-    buttonStyle: "bg-blue-600 text-white hover:bg-blue-700",
+    buttonStyle: "bg-primary text-white hover:bg-primary-dark",
     buttonType: "solid",
   },
   {
@@ -41,7 +41,7 @@ const tiers = [
       "Phone & email support",
     ],
     buttonText: "Contact us",
-    buttonStyle: "border-blue-600 text-blue-600 hover:bg-blue-50",
+    buttonStyle: "border-primary text-primary hover:bg-primary-light",
     buttonType: "outline",
   },
 ];
@@ -63,7 +63,7 @@ export default function Pricing() {
               key={tier.title}
               className={`flex flex-col rounded-2xl shadow-lg border p-6 gap-4 transition
                 ${tier.title === "Professional"
-                  ? "bg-gradient-to-b from-blue-900/80 to-blue-950/90 border-none shadow-2xl text-white relative"
+                  ? "bg-gradient-to-b from-primary-dark to-primary border-none shadow-2xl text-white relative"
                   : "bg-white border-gray-200"
                 }`}
             >
@@ -72,7 +72,7 @@ export default function Pricing() {
                   {tier.title}
                 </span>
                 {tier.title === "Professional" && (
-                  <span className="flex items-center gap-1 bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                  <span className="flex items-center gap-1 bg-primary text-white text-xs px-2 py-1 rounded-full font-semibold">
                     <FaStar className="text-yellow-300" /> {tier.subheader}
                   </span>
                 )}
@@ -85,12 +85,12 @@ export default function Pricing() {
                   per month
                 </span>
               </div>
-              <hr className={`my-2 ${tier.title === "Professional" ? "border-blue-400/40" : "border-gray-200"}`} />
+              <hr className={`my-2 ${tier.title === "Professional" ? "border-primary/40" : "border-gray-200"}`} />
               <ul className="flex-1 flex flex-col gap-2 mb-4">
                 {tier.description.map((line) => (
                   <li key={line} className="flex items-center gap-2">
                     <FaCheckCircle
-                      className={`w-5 h-5 ${tier.title === "Professional" ? "text-blue-300" : "text-blue-600"}`}
+                      className={`w-5 h-5 ${tier.title === "Professional" ? "text-primary/60" : "text-primary"}`}
                     />
                     <span className={tier.title === "Professional" ? "text-gray-100" : "text-gray-700"}>
                       {line}
@@ -101,8 +101,8 @@ export default function Pricing() {
               <button
                 className={`w-full py-2 rounded-lg font-semibold border transition
                   ${tier.buttonType === "solid"
-                    ? "bg-blue-600 text-white hover:bg-blue-700"
-                    : "border-blue-600 text-blue-600 hover:bg-blue-50"}
+                    ? "bg-primary text-white hover:bg-primary-dark"
+                    : "border-primary text-primary hover:bg-primary-light"}
                 `}
               >
                 {tier.buttonText}

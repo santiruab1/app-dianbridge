@@ -14,17 +14,17 @@ function Navbar() {
           </div>
           {/* Links desktop */}
           <div className="hidden md:flex gap-4">
-            <a href="#" className="text-gray-700 hover:text-blue-600 px-2 py-1 rounded transition">Features</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 px-2 py-1 rounded transition">Testimonials</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 px-2 py-1 rounded transition">Highlights</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 px-2 py-1 rounded transition">Pricing</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 px-2 py-1 rounded transition">FAQ</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 px-2 py-1 rounded transition">Blog</a>
+            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Features</a>
+            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Testimonials</a>
+            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Highlights</a>
+            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Pricing</a>
+            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">FAQ</a>
+            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Blog</a>
           </div>
           {/* Botones desktop */}
           <div className="hidden md:flex gap-2">
-            <button className="px-4 py-1 rounded text-blue-600 border border-blue-600 hover:bg-blue-50 transition">Sign in</button>
-            <button className="px-4 py-1 rounded bg-blue-600 text-white hover:bg-blue-700 transition">Sign up</button>
+            <button className="px-4 py-1 rounded text-primary border border-primary hover:bg-primary-light transition">Sign in</button>
+            <button className="px-4 py-1 rounded bg-primary text-white hover:bg-primary-dark transition">Sign up</button>
           </div>
           {/* Botón menú móvil */}
           <div className="md:hidden flex items-center">
@@ -62,8 +62,8 @@ function Navbar() {
             <a href="#" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">FAQ</a>
             <a href="#" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Blog</a>
             <div className="mt-4 flex flex-col gap-2">
-              <button className="w-full px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition">Sign up</button>
-              <button className="w-full px-4 py-2 rounded border border-blue-600 text-blue-600 hover:bg-blue-50 transition">Sign in</button>
+              <button className="w-full px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition">Sign up</button>
+              <button className="w-full px-4 py-2 rounded border border-primary text-primary hover:bg-primary-light transition">Sign in</button>
             </div>
           </div>
           {/* Clic fuera del menú para cerrar */}

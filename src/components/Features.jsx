@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-import { FaThLarge, FaMobileAlt, FaLaptop } from "react-icons/fa"; // Usa react-icons para los íconos
+import { FaThLarge, FaMobileAlt, FaLaptop } from "react-icons/fa";
 
 const items = [
   {
-    icon: <FaThLarge className="text-3xl text-blue-600" />,
+    icon: <FaThLarge className="text-3xl text-primary" />,
     title: "Dashboard",
     description:
       "Snapshot de los datos y métricas más importantes de tu producto.",
     image: "https://mui.com/static/images/templates/templates-images/dash-light.png",
   },
   {
-    icon: <FaMobileAlt className="text-3xl text-blue-600" />,
+    icon: <FaMobileAlt className="text-3xl text-primary" />,
     title: "Integración móvil",
     description:
       "Información sobre la versión móvil de tu producto.",
     image: "https://mui.com/static/images/templates/templates-images/mobile-light.png",
   },
   {
-    icon: <FaLaptop className="text-3xl text-blue-600" />,
+    icon: <FaLaptop className="text-3xl text-primary" />,
     title: "Disponible en todas las plataformas",
     description:
       "Disponible en web, móvil y escritorio.",
@@ -46,7 +46,7 @@ export default function Features() {
                 onClick={() => setSelected(idx)}
                 className={`flex items-start gap-4 p-4 rounded-lg border transition
                   ${selected === idx
-                    ? "bg-blue-50 border-blue-600 shadow"
+                    ? "bg-primary-light border-primary shadow"
                     : "bg-white border-gray-200 hover:bg-gray-50"}`}
               >
                 <div>{item.icon}</div>

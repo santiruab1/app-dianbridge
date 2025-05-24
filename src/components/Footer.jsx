@@ -18,7 +18,7 @@ export default function Footer() {
         {/* Newsletter */}
         <div className="flex-1 min-w-[220px] flex flex-col gap-4">
           {/* Logo o nombre */}
-          <span className="text-xl font-bold text-blue-700">Sitemark</span>
+          <span className="text-xl font-bold text-primary">Sitemark</span>
           <div className="font-semibold text-sm mt-2">Join the newsletter</div>
           <div className="text-xs text-gray-500 mb-2">Subscribe for weekly updates. No spams ever!</div>
           <form className="flex gap-2 max-w-xs">
@@ -29,12 +29,12 @@ export default function Footer() {
               autoComplete="off"
               aria-label="Enter your email address"
               placeholder="Your email address"
-              className="flex-1 px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm"
+              className="flex-1 px-3 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary text-sm"
               required
             />
             <button
               type="submit"
-              className="px-4 py-2 rounded bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition"
+              className="px-4 py-2 rounded bg-primary text-white text-sm font-semibold hover:bg-primary-dark transition"
             >
               Subscribe
             </button>
@@ -74,13 +74,13 @@ export default function Footer() {
         </div>
         <div className="flex gap-3 text-gray-500">
           <a href="https://github.com/mui" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-            <FaGithub className="w-5 h-5 hover:text-blue-700 transition" />
+            <FaGithub className="w-5 h-5 hover:text-primary transition" />
           </a>
           <a href="https://x.com/MaterialUI" aria-label="X" target="_blank" rel="noopener noreferrer">
-            <FaXTwitter className="w-5 h-5 hover:text-blue-700 transition" />
+            <FaXTwitter className="w-5 h-5 hover:text-primary transition" />
           </a>
           <a href="https://www.linkedin.com/company/mui/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin className="w-5 h-5 hover:text-blue-700 transition" />
+            <FaLinkedin className="w-5 h-5 hover:text-primary transition" />
           </a>
         </div>
       </div>

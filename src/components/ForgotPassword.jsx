@@ -26,7 +26,7 @@ export default function ForgotPassword({ open, handleClose }) {
             type="email"
             name="email"
             placeholder="Email address"
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <div className="flex justify-end gap-2 pt-2">
             <button
@@ -38,7 +38,7 @@ export default function ForgotPassword({ open, handleClose }) {
             </button>
             <button
               type="submit"
-              className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition"
+              className="px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition"
             >
               Continue
             </button>

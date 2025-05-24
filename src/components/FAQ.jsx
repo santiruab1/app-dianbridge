@@ -8,7 +8,7 @@ const faqs = [
     answer: (
       <>
         You can reach our customer support team by emailing&nbsp;
-        <a href="mailto:support@email.com" className="text-blue-700 underline">support@email.com</a>
+        <a href="mailto:support@email.com" className="text-primary underline">support@email.com</a>
         &nbsp;or calling our toll-free number. We're here to assist you promptly.
       </>
     ),
@@ -70,7 +70,7 @@ export default function FAQ() {
                 <span className="font-medium text-gray-800">{faq.question}</span>
                 <FaChevronDown
                   className={`ml-2 transition-transform duration-200 ${
-                    hovered === faq.id ? "rotate-180" : ""
+                    hovered === faq.id ? "rotate-180 text-primary" : "text-gray-400"
                   }`}
                 />
               </button>
