@@ -42,7 +42,7 @@ export default function Hero() {
                         </button>
                     </form>
                     <span className="text-xs text-gray-600 text-center mt-1">
-                        Al hacer clic en Comenzar ahora, acepta los términos y condiciones.
+                        Al hacer clic en "Comenzar ahora", acepta los términos y condiciones.
                         </span>
                 </div>
                 {/* Imagen destacada */}
