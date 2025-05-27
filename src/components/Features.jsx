@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { MdOutlineCardGiftcard, MdWorkspacePremium } from "react-icons/md";
 import { HiOutlineDocumentText } from "react-icons/hi";
+import freeImg from "../assets/free.jpg";
+import monthImg from "../assets/month.jfif";
+import anualImg from "../assets/anual.jfif";
 
 const items = [
   {
@@ -8,21 +11,21 @@ const items = [
     title: "Membresía Gratuita",
     description:
       "Ideal para pequeñas empresas que están comenzando su proceso de facturación electrónica.",
-    image: "https://mui.com/static/images/templates/templates-images/dash-light.png",
+    image: freeImg,
   },
   {
     icon: <HiOutlineDocumentText className="text-3xl text-primary" />,
     title: "Membresía Mensual",
     description:
       "Diseñada para medianas empresas que buscan eficiencia operativa.",
-    image: "https://mui.com/static/images/templates/templates-images/mobile-light.png",
+    image: monthImg,
   },
   {
     icon: <MdWorkspacePremium className="text-3xl text-primary" />,
     title: "Membresía Anual",
     description:
       "Solución robusta para empresas que necesitan escalabilidad y control total.",
-    image: "https://mui.com/static/images/templates/templates-images/devices-light.png",
+    image: anualImg,
   },
 ];
 
