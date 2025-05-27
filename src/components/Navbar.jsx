@@ -16,7 +16,7 @@ function Navbar() {
           <div className="hidden md:flex gap-4">
             <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Features</a>
             <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Testimonials</a>
-            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Highlights</a>
+            <a href="#highlights" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Por qué elegirnos</a>
             <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Pricing</a>
             <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">FAQ</a>
             <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Blog</a>
