@@ -35,7 +35,7 @@ const items = [
   },
   {
     icon: <FaHeadset className="text-3xl text-primary/70" />,
-    title: "Soporte personalizado y eficiente",
+    title: "Soporte eficiente",
     description:
       "Nuestro equipo de atención ofrece soluciones claras, rápidas y ajustadas a tus necesidades específicas, garantizando una experiencia de servicio confiable y cercana.",
   },

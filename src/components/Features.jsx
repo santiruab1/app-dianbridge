@@ -1,26 +1,27 @@
 import React, { useState } from "react";
-import { FaThLarge, FaMobileAlt, FaLaptop } from "react-icons/fa";
+import { MdOutlineCardGiftcard, MdWorkspacePremium } from "react-icons/md";
+import { HiOutlineDocumentText } from "react-icons/hi";
 
 const items = [
   {
-    icon: <FaThLarge className="text-3xl text-primary" />,
-    title: "Dashboard",
+    icon: <MdOutlineCardGiftcard className="text-3xl text-primary" />,
+    title: "Membresía Gratuita",
     description:
-      "Snapshot de los datos y métricas más importantes de tu producto.",
+      "Ideal para pequeñas empresas que están comenzando su proceso de facturación electrónica.",
     image: "https://mui.com/static/images/templates/templates-images/dash-light.png",
   },
   {
-    icon: <FaMobileAlt className="text-3xl text-primary" />,
-    title: "Integración móvil",
+    icon: <HiOutlineDocumentText className="text-3xl text-primary" />,
+    title: "Membresía Mensual",
     description:
-      "Información sobre la versión móvil de tu producto.",
+      "Diseñada para medianas empresas que buscan eficiencia operativa.",
     image: "https://mui.com/static/images/templates/templates-images/mobile-light.png",
   },
   {
-    icon: <FaLaptop className="text-3xl text-primary" />,
-    title: "Disponible en todas las plataformas",
+    icon: <MdWorkspacePremium className="text-3xl text-primary" />,
+    title: "Membresía Anual",
     description:
-      "Disponible en web, móvil y escritorio.",
+      "Solución robusta para empresas que necesitan escalabilidad y control total.",
     image: "https://mui.com/static/images/templates/templates-images/devices-light.png",
   },
 ];
@@ -32,9 +33,12 @@ export default function Features() {
     <section id="features" className="py-12 md:py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4">
         <div className="mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Comparación de Membresías</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            Comparación de membresías
+          </h2>
           <p className="text-gray-600">
-            Compara las características y beneficios de cada membresía para elegir la mejor opción para ti.
+            Compara las características y beneficios de cada plan para elegir la
+            opción ideal para tu empresa.
           </p>
         </div>
         <div className="flex flex-col md:flex-row gap-8">
@@ -45,14 +49,20 @@ export default function Features() {
                 key={item.title}
                 onClick={() => setSelected(idx)}
                 className={`flex items-start gap-4 p-4 rounded-lg border transition
-                  ${selected === idx
-                    ? "bg-primary-light border-primary shadow"
-                    : "bg-white border-gray-200 hover:bg-gray-50"}`}
+                  ${
+                    selected === idx
+                      ? "bg-primary-light border-primary shadow"
+                      : "bg-white border-gray-200 hover:bg-gray-50"
+                  }`}
               >
                 <div>{item.icon}</div>
                 <div className="text-left">
-                  <div className="font-semibold text-lg text-gray-900">{item.title}</div>
-                  <div className="text-gray-600 text-sm">{item.description}</div>
+                  <div className="font-semibold text-lg text-gray-900">
+                    {item.title}
+                  </div>
+                  <div className="text-gray-600 text-sm">
+                    {item.description}
+                  </div>
                 </div>
               </button>
             ))}
