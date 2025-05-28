@@ -14,10 +14,9 @@ function Navbar() {
           </div>
           {/* Links desktop */}
           <div className="hidden md:flex gap-4">
-            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Features</a>
-            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Testimonials</a>
             <a href="#highlights" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Por qué elegirnos</a>
-            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Pricing</a>
+            <a href="#features" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Membresías</a>
+            <a href="#pricing" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Precios</a>
             <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">FAQ</a>
             <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Blog</a>
           </div>
@@ -55,12 +54,9 @@ function Navbar() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <a href="#" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Features</a>
-            <a href="#" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Testimonials</a>
-            <a href="#" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Highlights</a>
-            <a href="#" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Pricing</a>
-            <a href="#" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">FAQ</a>
-            <a href="#" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Blog</a>
+            <a href="#highlights" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Por qué elegirnos</a>
+            <a href="#features" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Membresías</a>
+            <a href="#pricing" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Precios</a>
             <div className="mt-4 flex flex-col gap-2">
               <button className="w-full px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition">Sign up</button>
               <button className="w-full px-4 py-2 rounded border border-primary text-primary hover:bg-primary-light transition">Sign in</button>
