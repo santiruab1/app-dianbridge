@@ -35,7 +35,7 @@ export default function Features() {
   return (
     <section id="features" className="py-12 md:py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4">
-        <div className="mb-8 md:mb-12">
+        <div className="mb-8 md:mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             Comparación de membresías
           </h2>

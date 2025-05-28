@@ -48,11 +48,11 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-12 md:py-20 bg-white">
+    <section id="pricing" className="py-12 md:py-20 bg-gray-900 text-white">
       <div className="max-w-5xl mx-auto px-4 flex flex-col items-center gap-8">
         <div className="w-full md:w-3/5 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900">Pricing</h2>
-          <p className="text-gray-600">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">Pricing</h2>
+          <p className="text-gray-400">
             Quickly build an effective pricing table for your potential customers with this layout.<br />
             It's built with default Material UI components with little customization.
           </p>
@@ -63,12 +63,12 @@ export default function Pricing() {
               key={tier.title}
               className={`flex flex-col rounded-2xl shadow-lg border p-6 gap-4 transition
                 ${tier.title === "Professional"
-                  ? "bg-gradient-to-b from-primary-dark to-primary border-none shadow-2xl text-white relative"
-                  : "bg-white border-gray-200"
+                  ? "bg-primary/60 border-none shadow-2xl text-white relative"
+                  : "bg-gray-800 border-gray-700 text-white"
                 }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className={`text-lg font-semibold ${tier.title === "Professional" ? "text-white" : "text-gray-900"}`}>
+                <span className={`text-lg font-semibold ${tier.title === "Professional" ? "text-white" : "text-white"}`}>
                   {tier.title}
                 </span>
                 {tier.title === "Professional" && (
@@ -78,21 +78,21 @@ export default function Pricing() {
                 )}
               </div>
               <div className="flex items-baseline gap-2 mb-2">
-                <span className={`text-4xl font-bold ${tier.title === "Professional" ? "text-white" : "text-gray-900"}`}>
+                <span className={`text-4xl font-bold ${tier.title === "Professional" ? "text-white" : "text-white"}`}>
                   ${tier.price}
                 </span>
-                <span className={`text-base ${tier.title === "Professional" ? "text-gray-200" : "text-gray-600"}`}>
+                <span className={`text-base ${tier.title === "Professional" ? "text-gray-200" : "text-gray-400"}`}>
                   per month
                 </span>
               </div>
-              <hr className={`my-2 ${tier.title === "Professional" ? "border-primary/40" : "border-gray-200"}`} />
+              <hr className={`my-2 ${tier.title === "Professional" ? "border-primary/40" : "border-gray-700"}`} />
               <ul className="flex-1 flex flex-col gap-2 mb-4">
                 {tier.description.map((line) => (
                   <li key={line} className="flex items-center gap-2">
                     <FaCheckCircle
                       className={`w-5 h-5 ${tier.title === "Professional" ? "text-primary/60" : "text-primary"}`}
                     />
-                    <span className={tier.title === "Professional" ? "text-gray-100" : "text-gray-700"}>
+                    <span className={tier.title === "Professional" ? "text-gray-100" : "text-gray-300"}>
                       {line}
                     </span>
                   </li>
