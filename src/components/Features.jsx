@@ -72,11 +72,11 @@ export default function Features() {
           </div>
           {/* Imagen/preview */}
           <div className="flex-1 flex items-center justify-center">
-            <div className="w-full max-w-md aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden shadow border">
+            <div className="w-full max-w-md aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden shadow border flex items-center justify-center">
               <img
                 src={items[selected].image}
                 alt={items[selected].title}
-                className="object-contain w-full h-full"
+                className="object-cover w-[95%] h-[95%] rounded-lg shadow"
               />
             </div>
           </div>
