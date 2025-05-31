@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
-function useTypewriter(text, isActive, speed = 8) {
+function useTypewriter(text, isActive, speed = 1) {
 	const [displayed, setDisplayed] = useState("");
 	const intervalRef = useRef();
 
