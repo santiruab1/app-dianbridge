@@ -44,7 +44,7 @@ function Navbar({ onSectionClick }) {
           </div>
           {/* Botones desktop */}
           <div className="hidden md:flex gap-2">
-            <Link to="/signin" className="px-4 py-1 rounded text-primary border border-primary hover:bg-primary-light transition">Acceder</Link>
+            <Link to="/signin" className="px-4 py-1 rounded text-primary border border-primary hover:bg-primary-light transition">Iniciar Sesión</Link>
             <Link to="/signup" className="px-4 py-1 rounded bg-primary text-white hover:bg-primary-dark transition">Registrarse</Link>
           </div>
           {/* Botón menú móvil */}

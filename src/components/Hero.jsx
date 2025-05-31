@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/dianbridge-logo.png";
 import UI from "../assets/dianbridge-UI.jpg"
 
 export default function Hero() {
+    const [email, setEmail] = useState("");
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (email) {
+            navigate('/signup', { state: { email } });
+        }
+    };
+
     return (
         <section
             id="hero"
@@ -20,7 +31,7 @@ export default function Hero() {
                     </p>
                     <form
                         className="flex flex-col sm:flex-row gap-2 w-full max-w-2xl pt-2 justify-center items-center"
-                        onSubmit={e => e.preventDefault()}
+                        onSubmit={handleSubmit}
                     >
                         <label htmlFor="email-hero" className="sr-only">
                             Email
@@ -29,6 +40,8 @@ export default function Hero() {
                             id="email-hero"
                             type="email"
                             autoComplete="off"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             aria-label="Enter your email address"
                             placeholder="Ingresa tu correo electrónico"
                             className="w-60 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary text-gray-900 text-center placeholder:text-center"

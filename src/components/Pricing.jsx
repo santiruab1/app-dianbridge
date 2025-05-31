@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStar, FaCheckCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const tiers = [
 	{
@@ -57,6 +58,12 @@ function getButtonClass(tier) {
 }
 
 export default function Pricing() {
+	const navigate = useNavigate();
+
+	const handleTierClick = () => {
+		navigate("/signup");
+	};
+
 	return (
 		<section id="pricing" className="py-12 md:py-20 bg-gray-900 text-white">
 			<div className="max-w-5xl mx-auto px-4 flex flex-col items-center gap-8">
@@ -65,7 +72,8 @@ export default function Pricing() {
 						Precios
 					</h2>
 					<p className="text-gray-400">
-						Selecciona el plan que mejor se adapte a las necesidades de tu empresa.
+						Selecciona el plan que mejor se adapte a las necesidades de tu
+						empresa.
 					</p>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
@@ -127,6 +135,7 @@ export default function Pricing() {
 								))}
 							</ul>
 							<button
+								onClick={handleTierClick}
 								className={`w-full py-2 rounded-lg font-semibold transition ${getButtonClass(tier)}`}
 							>
 								{tier.buttonText}

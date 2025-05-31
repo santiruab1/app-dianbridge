@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function SignUp() {
+  const location = useLocation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,6 +10,13 @@ export default function SignUp() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [allowEmails, setAllowEmails] = useState(false);
+  const [termsError, setTermsError] = useState("");
+
+  useEffect(() => {
+    if (location.state?.email) {
+      setEmail(location.state.email);
+    }
+  }, [location.state?.email]);
 
   const validate = () => {
     let valid = true;
@@ -29,6 +37,12 @@ export default function SignUp() {
       valid = false;
     } else {
       setPasswordError("");
+    }
+    if (!allowEmails) {
+      setTermsError("Debes aceptar los términos y condiciones para continuar.");
+      valid = false;
+    } else {
+      setTermsError("");
     }
     return valid;
   };
@@ -97,15 +111,21 @@ export default function SignUp() {
             />
             {passwordError && <div className="text-red-500 text-xs mt-1">{passwordError}</div>}
           </div>
-          <label className="flex items-center gap-2 text-sm text-gray-600">
-            <input
-              type="checkbox"
-              checked={allowEmails}
-              onChange={() => setAllowEmails(!allowEmails)}
-              className="accent-primary"
-            />
-            Quiero recibir actualizaciones por correo electrónico.
-          </label>
+          <div>
+            <label className="flex items-center gap-2 text-sm text-gray-600">
+              <input
+                type="checkbox"
+                checked={allowEmails}
+                onChange={() => {
+                  setAllowEmails(!allowEmails);
+                  if (!allowEmails) setTermsError("");
+                }}
+                className={`accent-primary ${!allowEmails && termsError ? "ring-2 ring-red-500" : ""}`}
+              />
+              Acepto términos y condiciones
+            </label>
+            {termsError && <div className="text-red-500 text-xs mt-1">{termsError}</div>}
+          </div>
           <button
             type="submit"
             className="w-full py-2 rounded bg-primary text-white font-semibold hover:bg-primary-dark transition"
@@ -115,10 +135,7 @@ export default function SignUp() {
           <div className="relative flex items-center gap-2">
             <div className="flex-1 h-px bg-gray-200"></div>
           </div>
-
         </form>
-
-
         <div className="text-center text-sm text-gray-600">
           ¿Ya tienes una cuenta?{" "}
           <Link to="/signin" className="text-primary hover:underline font-medium">
