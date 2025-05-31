@@ -1,5 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa";
+
+function useTypewriter(text, isActive, speed = 8) {
+	const [displayed, setDisplayed] = useState("");
+	const intervalRef = useRef();
+
+	React.useEffect(() => {
+		if (!isActive) {
+			setDisplayed("");
+			return;
+		}
+		setDisplayed("");
+		let i = 0;
+		intervalRef.current = setInterval(() => {
+			setDisplayed((prev) => text.slice(0, i + 1));
+			i++;
+			if (i >= text.length) clearInterval(intervalRef.current);
+		}, speed);
+		return () => clearInterval(intervalRef.current);
+	}, [isActive, text, speed]);
+
+	return displayed;
+}
 
 const faqs = [
 	{
@@ -29,20 +51,7 @@ const faqs = [
 	{
 		id: "panel3",
 		question: "¿Qué planes de licencia ofrece DIANBridge?",
-		answer: (
-			<>
-				Ofrecemos tres planes:
-				<br />
-				<strong>Plan gratuito:</strong> integración esencial para pequeñas
-				empresas.
-				<br />
-				<strong>Plan mensual:</strong> ideal para medianas empresas, incluye
-				Soporte y reportes.
-				<br />
-				<strong>Plan anual:</strong> solución avanzada con soporte prioritario y
-				herramientas personalizadas.
-			</>
-		),
+		answer: `Ofrecemos tres planes:\n\n• Plan gratuito: integración esencial para pequeñas empresas.\n• Plan mensual: ideal para medianas empresas, incluye soporte y reportes.\n• Plan anual: solución avanzada con soporte prioritario y herramientas personalizadas.`,
 	},
 	{
 		id: "panel4",
@@ -101,6 +110,21 @@ export default function FAQ() {
 					{faqs.map((faq) => {
 						const isOpen =
 							open === faq.id || (!isMobile && hovered === faq.id);
+						let answerText = "";
+						if (typeof faq.answer === "string") {
+							answerText = faq.answer;
+						} else if (
+							faq.answer &&
+							typeof faq.answer.props?.children === "string"
+						) {
+							answerText = faq.answer.props.children;
+						} else {
+							// fallback: render as plain text
+							answerText = React.Children.toArray(
+								faq.answer.props.children
+							).join(" ");
+						}
+						const typed = useTypewriter(answerText, isOpen);
 						return (
 							<div
 								key={faq.id}
@@ -137,7 +161,16 @@ export default function FAQ() {
 									}`}
 									aria-labelledby={`${faq.id}-header`}
 								>
-									{isOpen && <div>{faq.answer}</div>}
+									{isOpen && (
+										<div style={{ minHeight: 40, whiteSpace: 'pre-line' }}>
+											{typed}
+											{typed.length < answerText.length && (
+												<span className="animate-pulse text-primary">
+													|
+												</span>
+											)}
+										</div>
+									)}
 								</div>
 							</div>
 						);
