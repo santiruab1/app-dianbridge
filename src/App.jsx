@@ -1,28 +1,16 @@
 import React from "react"
-import Navbar from "./components/Navbar"
-import Features from "./components/Features"
-import Highlights from "./components/Highlights"
-import Pricing from "./components/Pricing"
-import Hero from "./components/Hero"
-import FAQ from "./components/FAQ"
-import SignIn from "./components/SignIn"
-import SignUp from "./components/SingUp"
-import Footer from "./components/Footer"
+import { Route, Routes } from "react-router-dom"
+import { Home } from "./pages/Home"
+import { SignInPage } from "./pages/SignInPage"
+import { SignUpPage } from "./pages/SignUpPage"
 
 function App() {
   return (
-    <>
-      <Hero />
-      <Navbar />
-      <Highlights/>
-      <Features />
-      <Pricing />
-      <FAQ />
-      <SignIn />
-      <SignUp />
-      <Footer />
-      {/* Otros componentes */}
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/signin" element={<SignInPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
+    </Routes>
   )
 }
 

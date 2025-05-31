@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import logo from '../assets/dianbridge-logo.png'; // Ajusta el nombre si es diferente
+import { Link } from 'react-router-dom';
+import logo from '../assets/dianbridge-logo.png';
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -10,20 +11,21 @@ function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logo} alt="DianBridge Logo" className="h-14" />
+            <Link to="/">
+              <img src={logo} alt="DianBridge Logo" className="h-14" />
+            </Link>
           </div>
           {/* Links desktop */}
           <div className="hidden md:flex gap-4">
             <a href="#highlights" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Por qué elegirnos</a>
             <a href="#features" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Membresías</a>
             <a href="#pricing" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Precios</a>
-            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">FAQ</a>
-            <a href="#" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Blog</a>
+            <a href="#faq" className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Preguntas frecuentes</a>
           </div>
           {/* Botones desktop */}
           <div className="hidden md:flex gap-2">
-            <button className="px-4 py-1 rounded text-primary border border-primary hover:bg-primary-light transition">Sign in</button>
-            <button className="px-4 py-1 rounded bg-primary text-white hover:bg-primary-dark transition">Sign up</button>
+            <Link to="/signin" className="px-4 py-1 rounded text-primary border border-primary hover:bg-primary-light transition">Sign in</Link>
+            <Link to="/signup" className="px-4 py-1 rounded bg-primary text-white hover:bg-primary-dark transition">Sign up</Link>
           </div>
           {/* Botón menú móvil */}
           <div className="md:hidden flex items-center">
@@ -57,9 +59,10 @@ function Navbar() {
             <a href="#highlights" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Por qué elegirnos</a>
             <a href="#features" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Membresías</a>
             <a href="#pricing" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Precios</a>
+            <a href="#faq" className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Preguntas frecuentes</a>
             <div className="mt-4 flex flex-col gap-2">
-              <button className="w-full px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition">Sign up</button>
-              <button className="w-full px-4 py-2 rounded border border-primary text-primary hover:bg-primary-light transition">Sign in</button>
+              <Link to="/signup" className="w-full px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition">Sign up</Link>
+              <Link to="/signin" className="w-full px-4 py-2 rounded border border-primary text-primary hover:bg-primary-light transition">Sign in</Link>
             </div>
           </div>
           {/* Clic fuera del menú para cerrar */}
