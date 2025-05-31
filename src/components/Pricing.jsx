@@ -58,7 +58,7 @@ export default function Pricing() {
 			<div className="max-w-5xl mx-auto px-4 flex flex-col items-center gap-8">
 				<div className="w-full md:w-3/5 text-center">
 					<h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">
-						Pricing
+						Precios
 					</h2>
 					<p className="text-gray-400">
 						Quickly build an effective pricing table for your potential customers
