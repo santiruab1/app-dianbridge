@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaGoogle, FaFacebook } from "react-icons/fa";
 import ForgotPassword from "./ForgotPassword";
 import { Link } from "react-router-dom";
 
@@ -34,9 +33,8 @@ export default function SignIn() {
       alert("¡Inicio de sesión exitoso!");
     }
   };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-8 px-4">
+    <div className="min-h-[calc(100vh-8rem)] flex items-center justify-center bg-gray-50 py-8 px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6">
         <div className="flex flex-col items-center gap-2">
           <div className="text-3xl font-bold text-primary">Iniciar Sesión</div>
