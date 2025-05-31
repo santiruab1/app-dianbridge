@@ -13,8 +13,6 @@ const tiers = [
 			"Soporte técnico limitado por correo electrónico",
 		],
 		buttonText: "Comenzar gratis",
-		buttonStyle: "border-primary text-primary hover:bg-primary-light",
-		buttonType: "outline",
 		popular: false,
 	},
 	{
@@ -29,8 +27,6 @@ const tiers = [
 			"Reportes básicos de facturación",
 		],
 		buttonText: "Empezar ahora",
-		buttonStyle: "bg-primary text-white hover:bg-primary-dark",
-		buttonType: "solid",
 		popular: false,
 	},
 	{
@@ -45,12 +41,20 @@ const tiers = [
 			"Reportes personalizados y análisis de datos",
 			"Capacitaciones en línea para el equipo",
 		],
-		buttonText: "Contáctanos",
-		buttonStyle: "bg-primary text-white hover:bg-primary-dark",
-		buttonType: "solid",
+		buttonText: "Únete hoy",
 		popular: true,
 	},
 ];
+
+function getButtonType(tier) {
+	return tier.popular ? "solid" : "outline";
+}
+
+function getButtonClass(tier) {
+	return getButtonType(tier) === "solid"
+		? "bg-primary text-white hover:bg-primary-dark border border-primary"
+		: "border-primary text-primary hover:bg-primary-light border";
+}
 
 export default function Pricing() {
 	return (
@@ -61,11 +65,7 @@ export default function Pricing() {
 						Precios
 					</h2>
 					<p className="text-gray-400">
-						Quickly build an effective pricing table for your potential customers
-						with this layout.
-						<br />
-						It's built with default Material UI components with little
-						customization.
+						Selecciona el plan que mejor se adapte a las necesidades de tu empresa.
 					</p>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
@@ -127,13 +127,7 @@ export default function Pricing() {
 								))}
 							</ul>
 							<button
-								className={`w-full py-2 rounded-lg font-semibold border transition
-                  ${
-					tier.buttonType === "solid"
-						? "bg-primary text-white hover:bg-primary-dark"
-						: "border-primary text-primary hover:bg-primary-light"
-				}
-                `}
+								className={`w-full py-2 rounded-lg font-semibold transition ${getButtonClass(tier)}`}
 							>
 								{tier.buttonText}
 							</button>
