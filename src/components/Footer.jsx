@@ -61,19 +61,15 @@ export default function Footer({ onSectionClick }) {
             <a href="#faq" onClick={handleSectionClick('faq')} className="text-gray-500 text-sm hover:underline">Preguntas frecuentes</a>
           </div>
           <div className="flex flex-col gap-1 min-w-[100px]">
-            <div className="font-semibold text-sm mb-1">Cuenta</div>
-            <Link to="/signin" className="text-gray-500 text-sm hover:underline">Iniciar sesión</Link>
-            <Link to="/signup" className="text-gray-500 text-sm hover:underline">Registrarse</Link>
-            <button onClick={() => document.getElementById('email-newsletter')?.scrollIntoView({ behavior: 'smooth' })} 
-                    className="text-left text-gray-500 text-sm hover:underline">
-              Boletín
-            </button>
-          </div>
-          <div className="flex flex-col gap-1 min-w-[100px]">
             <div className="font-semibold text-sm mb-1">Legal</div>
             <Link to="/terms" className="text-gray-500 text-sm hover:underline">Términos y condiciones</Link>
             <Link to="/privacy" className="text-gray-500 text-sm hover:underline">Política de privacidad</Link>
             <Link to="/contact" className="text-gray-500 text-sm hover:underline">Contacto</Link>
+          </div>
+          <div className="flex flex-col gap-1 min-w-[100px]">
+            <div className="font-semibold text-sm mb-1">Cuenta</div>
+            <Link to="/signin" className="text-gray-500 text-sm hover:underline">Iniciar Sesión</Link>
+            <Link to="/signup" className="text-gray-500 text-sm hover:underline">Registrarse</Link>
           </div>
         </div>
       </div>
