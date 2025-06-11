@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function SignUp() {
   const location = useLocation();
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nameError, setNameError] = useState("");
@@ -11,6 +11,7 @@ export default function SignUp() {
   const [passwordError, setPasswordError] = useState("");
   const [allowEmails, setAllowEmails] = useState(false);
   const [termsError, setTermsError] = useState("");
+  const [generalError, setGeneralError] = useState("");
 
   useEffect(() => {
     if (location.state?.email) {
@@ -20,8 +21,8 @@ export default function SignUp() {
 
   const validate = () => {
     let valid = true;
-    if (!name.trim()) {
-      setNameError("El nombre es requerido.");
+    if (!username.trim()) {
+      setNameError("El nombre de usuario es requerido.");
       valid = false;
     } else {
       setNameError("");
@@ -47,11 +48,35 @@ export default function SignUp() {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setGeneralError("");
     if (validate()) {
-      // Aquí iría tu lógica de registro
-      alert("¡Registro exitoso!");
+      try {
+        const response = await fetch('http://localhost:8080/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password })
+        });
+        if (!response.ok) {
+          let errorMsg = 'Error al registrarse';
+          try {
+            const errorData = await response.json();
+            errorMsg = errorData.message || errorMsg;
+            setEmailError(""); 
+          } catch (err) {
+            
+          }
+          setGeneralError(errorMsg);
+          console.error('Error en registro:', errorMsg);
+          return;
+        }
+        const data = await response.json();
+        alert('¡Registro exitoso!');
+      } catch (error) {
+        setGeneralError('Error de red o del servidor');
+        console.error('Error de red o del servidor', error);
+      }
     }
   };
 
@@ -64,17 +89,17 @@ export default function SignUp() {
         </div>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit} noValidate>
           <div>
-            <label htmlFor="name" className="block text-gray-700 font-medium mb-1">
-              Nombre completo
+            <label htmlFor="username" className="block text-gray-700 font-medium mb-1">
+              Nombre de usuario
             </label>
             <input
-              id="name"
+              id="username"
               type="text"
-              autoComplete="name"
-              placeholder="John Doe"
+              autoComplete="username"
+              placeholder="JohnDoe123"
               className={`w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary ${nameError ? "border-red-500" : "border-gray-300"}`}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
             {nameError && <div className="text-red-500 text-xs mt-1">{nameError}</div>}
@@ -132,6 +157,9 @@ export default function SignUp() {
           >
             Registrarse
           </button>
+          {generalError && (
+            <div className="text-red-500 text-sm text-center mt-2">{generalError}</div>
+          )}
           <div className="relative flex items-center gap-2">
             <div className="flex-1 h-px bg-gray-200"></div>
           </div>
