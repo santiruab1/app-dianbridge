@@ -26,11 +26,27 @@ export default function SignIn() {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      // Aquí iría tu lógica de autenticación
-      alert("¡Inicio de sesión exitoso!");
+      try {
+        const response = await fetch('http://localhost:8080/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        if (!response.ok) {
+          const errorData = await response.json();
+          setEmailError(errorData.message || 'Error al iniciar sesión');
+          return;
+        }
+        // Si la autenticación es exitosa
+        const data = await response.json();
+        // Aquí puedes guardar el token o redirigir
+        alert('¡Inicio de sesión exitoso!');
+      } catch (error) {
+        setEmailError('Error de red o del servidor');
+      }
     }
   };
   return (
