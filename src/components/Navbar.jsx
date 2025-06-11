@@ -41,8 +41,7 @@ function Navbar({ onSectionClick }) {
     return userRole === 'admin' ? '/dashboard/admin' : '/dashboard/client';
   };
 
-  return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur border-b border-gray-200 shadow-sm">
+  return (    <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -101,11 +100,10 @@ function Navbar({ onSectionClick }) {
             </button>
           </div>
         </div>
-      </div>
-      {/* Menú móvil */}
+      </div>      {/* Menú móvil */}
       {open && (
-        <div className="fixed inset-0 bg-black/40 z-50 flex justify-end">
-          <div className="w-64 bg-white h-full shadow-lg p-4 flex flex-col">
+        <div className="fixed inset-0 bg-black/40 z-50 flex md:hidden">
+          <div className="w-full bg-white h-full shadow-lg p-4 flex flex-col">
             <button
               onClick={() => setOpen(false)}
               className="self-end mb-4 p-2 rounded hover:bg-gray-100"
