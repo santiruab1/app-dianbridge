@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import ForgotPassword from "./ForgotPassword";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [forgotOpen, setForgotOpen] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   const validate = () => {
     let valid = true;
@@ -25,12 +27,27 @@ export default function SignIn() {
     }
     return valid;
   };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoginError("");
+    
     if (validate()) {
-      // Aquí iría tu lógica de autenticación
-      alert("¡Inicio de sesión exitoso!");
+      try {
+        // Simular verificación de credenciales
+        // En un caso real, esto sería una llamada a tu API
+        if (email === "admin@dianbridge.com" && password === "123456") {
+          localStorage.setItem("userRole", "admin");
+          navigate("/dashboard/admin");
+        } else if (email === "cliente@dianbridge.com" && password === "123456") {
+          localStorage.setItem("userRole", "client");
+          navigate("/dashboard/client");
+        } else {
+          setLoginError("Credenciales inválidas");
+        }
+      } catch (error) {
+        console.error("Error en inicio de sesión:", error);
+        setLoginError("Error al iniciar sesión. Intenta nuevamente.");
+      }
     }
   };
   return (
@@ -85,13 +102,18 @@ export default function SignIn() {
             >
               ¿Olvidaste tu contraseña?
             </button>
-          </div>
-          <button
+          </div>          <button
             type="submit"
             className="w-full py-2 rounded bg-primary text-white font-semibold hover:bg-primary-dark transition"
           >
             Iniciar Sesión
           </button>
+          
+          {loginError && (
+            <div className="text-red-500 text-sm text-center">
+              {loginError}
+            </div>
+          )}
           
           <div className="relative flex items-center gap-2">
             <div className="flex-1 h-px bg-gray-200"></div>

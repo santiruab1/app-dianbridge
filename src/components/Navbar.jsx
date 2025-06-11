@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import logo from '../assets/dianbridge-logo.png';
+import { FiUser, FiLogOut } from 'react-icons/fi';
 
 function Navbar({ onSectionClick }) {
   const [open, setOpen] = useState(false);
+  const [userRole, setUserRole] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
+
+  useEffect(() => {
+    const role = localStorage.getItem('userRole');
+    setUserRole(role);
+  }, [location]);
 
   const handleClick = (e, sectionId) => {
     e.preventDefault();
@@ -16,13 +23,22 @@ function Navbar({ onSectionClick }) {
       onSectionClick(sectionId);
     }
   };
-
   const handleLogoClick = (e) => {
     e.preventDefault();
     if (!isHome) {
       navigate('/', { replace: true });
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('userRole');
+    setUserRole(null);
+    navigate('/');
+  };
+
+  const getDashboardLink = () => {
+    return userRole === 'admin' ? '/dashboard/admin' : '/dashboard/client';
   };
 
   return (
@@ -41,11 +57,35 @@ function Navbar({ onSectionClick }) {
             <a href="#features" onClick={(e) => handleClick(e, 'features')} className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Membresías</a>
             <a href="#pricing" onClick={(e) => handleClick(e, 'pricing')} className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Precios</a>
             <a href="#faq" onClick={(e) => handleClick(e, 'faq')} className="text-gray-700 hover:text-primary px-2 py-1 rounded transition">Preguntas frecuentes</a>
-          </div>
-          {/* Botones desktop */}
+          </div>          {/* Botones desktop */}
           <div className="hidden md:flex gap-2">
-            <Link to="/signin" className="px-4 py-1 rounded text-primary border border-primary hover:bg-primary-light transition">Iniciar Sesión</Link>
-            <Link to="/signup" className="px-4 py-1 rounded bg-primary text-white hover:bg-primary-dark transition">Registrarse</Link>
+            {userRole ? (
+              <div className="flex items-center gap-2">
+                <Link 
+                  to={getDashboardLink()}
+                  className="flex items-center gap-2 px-4 py-1 rounded text-primary border border-primary hover:bg-primary-light transition"
+                >
+                  <FiUser className="w-4 h-4" />
+                  <span>Dashboard</span>
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 px-4 py-1 rounded bg-primary text-white hover:bg-primary-dark transition"
+                >
+                  <FiLogOut className="w-4 h-4" />
+                  <span>Cerrar Sesión</span>
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link to="/signin" className="px-4 py-1 rounded text-primary border border-primary hover:bg-primary-light transition">
+                  Iniciar Sesión
+                </Link>
+                <Link to="/signup" className="px-4 py-1 rounded bg-primary text-white hover:bg-primary-dark transition">
+                  Registrarse
+                </Link>
+              </>
+            )}
           </div>
           {/* Botón menú móvil */}
           <div className="md:hidden flex items-center">
@@ -79,10 +119,34 @@ function Navbar({ onSectionClick }) {
             <a href="#highlights" onClick={(e) => { handleClick(e, 'highlights'); setOpen(false); }} className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Por qué elegirnos</a>
             <a href="#features" onClick={(e) => { handleClick(e, 'features'); setOpen(false); }} className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Membresías</a>
             <a href="#pricing" onClick={(e) => { handleClick(e, 'pricing'); setOpen(false); }} className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Precios</a>
-            <a href="#faq" onClick={(e) => { handleClick(e, 'faq'); setOpen(false); }} className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Preguntas frecuentes</a>
-            <div className="mt-4 flex flex-col gap-2">
-              <Link to="/signup" className="w-full px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition">Sign up</Link>
-              <Link to="/signin" className="w-full px-4 py-2 rounded border border-primary text-primary hover:bg-primary-light transition">Sign in</Link>
+            <a href="#faq" onClick={(e) => { handleClick(e, 'faq'); setOpen(false); }} className="py-2 px-2 rounded hover:bg-gray-100 text-gray-700">Preguntas frecuentes</a>            <div className="mt-4 flex flex-col gap-2">
+              {userRole ? (
+                <>
+                  <Link 
+                    to={getDashboardLink()}
+                    className="w-full px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition flex items-center justify-center gap-2"
+                  >
+                    <FiUser className="w-4 h-4" />
+                    <span>Dashboard</span>
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full px-4 py-2 rounded border border-primary text-primary hover:bg-primary-light transition flex items-center justify-center gap-2"
+                  >
+                    <FiLogOut className="w-4 h-4" />
+                    <span>Cerrar Sesión</span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/signup" className="w-full px-4 py-2 rounded bg-primary text-white hover:bg-primary-dark transition">
+                    Registrarse
+                  </Link>
+                  <Link to="/signin" className="w-full px-4 py-2 rounded border border-primary text-primary hover:bg-primary-light transition">
+                    Iniciar Sesión
+                  </Link>
+                </>
+              )}
             </div>
           </div>
           {/* Clic fuera del menú para cerrar */}
