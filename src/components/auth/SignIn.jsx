@@ -33,24 +33,34 @@ export default function SignIn() {
     
     if (validate()) {
       try {
-        // Simular verificación de credenciales
-        // En un caso real, esto sería una llamada a tu API
-        if (email === "admin@dianbridge.com" && password === "123456") {
-          localStorage.setItem("userRole", "admin");
-          navigate("/dashboard/admin");
-        } else if (email === "cliente@dianbridge.com" && password === "123456") {
-          localStorage.setItem("userRole", "client");
-          navigate("/dashboard/client");
-        } else if (email === "user@dianbridge.com" && password === "123456") {
-          // If the DB role is 'user', treat as client and redirect to client dashboard
-          localStorage.setItem("userRole", "user");
-          navigate("/dashboard/client");
+        const response = await fetch('http://localhost:8080/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        if (!response.ok) {
+          let errorMsg = 'Credenciales inválidas';
+          try {
+            const errorData = await response.json();
+            errorMsg = errorData.message || errorMsg;
+          } catch (err) {}
+          setLoginError(errorMsg);
+          return;
+        }
+        const data = await response.json();
+        // Redirección según el rol recibido en la respuesta
+        if (data.role === 'ADMIN') {
+          localStorage.setItem('userRole', 'admin');
+          navigate('/dashboard/admin');
+        } else if (data.role === 'CLIENT' || data.role === 'USER') {
+          localStorage.setItem('userRole', data.role);
+          navigate('/dashboard/client');
         } else {
-          setLoginError("Credenciales inválidas");
+          setLoginError('Rol no reconocido.');
         }
       } catch (error) {
-        console.error("Error en inicio de sesión:", error);
-        setLoginError("Error al iniciar sesión. Intenta nuevamente.");
+        console.error('Error en inicio de sesión:', error);
+        setLoginError('Error al iniciar sesión. Intenta nuevamente.');
       }
     }
   };
