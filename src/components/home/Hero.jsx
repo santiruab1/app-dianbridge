@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/dianbridge-logo.png";
-import UI from "../assets/dianbridge-UI.jpg"
+import logo from "../../assets/dianbridge-logo.png";
+import UI from "../../assets/dianbridge-UI.jpg"
 
 export default function Hero() {
     const [email, setEmail] = useState("");

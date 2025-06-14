@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import logo from '../assets/dianbridge-logo.png';
+import logo from '../../assets/dianbridge-logo.png';
 import { FiUser, FiLogOut } from 'react-icons/fi';
 
 function Navbar({ onSectionClick }) {

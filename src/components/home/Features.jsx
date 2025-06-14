@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { MdOutlineCardGiftcard, MdWorkspacePremium } from "react-icons/md";
 import { HiOutlineDocumentText } from "react-icons/hi";
-import freeImg from "../assets/free.jpg";
-import monthImg from "../assets/month.jfif";
-import anualImg from "../assets/anual.jfif";
+import freeImg from "../../assets/free.jpg";
+import monthImg from "../../assets/month.jfif";
+import anualImg from "../../assets/anual.jfif";
 
 const items = [
   {

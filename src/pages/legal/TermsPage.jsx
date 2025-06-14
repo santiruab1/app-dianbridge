@@ -1,16 +1,15 @@
-import React, { useLayoutEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import SignUp from '../components/SingUp'
-import Footer from '../components/Footer'
+import React, { useLayoutEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/home/Navbar';
+import TermsAndConditions from '../../components/legal/TermsAndConditions';
+import Footer from '../../components/home/Footer';
 
-export const SignUpPage = () => {
+export const TermsPage = () => {
   const navigate = useNavigate();
 
   useLayoutEffect(() => {
     window.scrollTo({
       top: 0,
-      left: 0,
       behavior: 'smooth'
     });
   }, []);
@@ -23,9 +22,9 @@ export const SignUpPage = () => {
     <>
       <Navbar onSectionClick={handleNavigation} />
       <div className="mt-16">
-        <SignUp />
+        <TermsAndConditions />
       </div>
       <Footer onSectionClick={handleNavigation} />
     </>
-  )
-}
+  );
+};

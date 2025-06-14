@@ -1,16 +1,15 @@
-import React, { useLayoutEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import SignIn from '../components/SignIn'
-import Footer from '../components/Footer'
+import React, { useLayoutEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/home/Navbar';
+import PrivacyPolicy from '../../components/legal/PrivacyPolicy';
+import Footer from '../../components/home/Footer';
 
-export const SignInPage = () => {
+export const PrivacyPage = () => {
   const navigate = useNavigate();
 
   useLayoutEffect(() => {
     window.scrollTo({
       top: 0,
-      left: 0,
       behavior: 'smooth'
     });
   }, []);
@@ -23,9 +22,9 @@ export const SignInPage = () => {
     <>
       <Navbar onSectionClick={handleNavigation} />
       <div className="mt-16">
-        <SignIn />
+        <PrivacyPolicy />
       </div>
       <Footer onSectionClick={handleNavigation} />
     </>
-  )
-}
+  );
+};
