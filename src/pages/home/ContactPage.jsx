@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
+import Navbar from '../../components/home/Navbar';
+import Contact from '../../components/home/Contact';
+import Footer from '../../components/home/Footer';
 
 export const ContactPage = () => {
   const navigate = useNavigate();

@@ -1,11 +1,19 @@
 import React from "react"
 import { Route, Routes } from "react-router-dom"
-import { Home } from "./pages/Home"
-import { SignInPage } from "./pages/SignInPage"
-import { SignUpPage } from "./pages/SignUpPage"
-import { TermsPage } from "./pages/TermsPage"
-import { PrivacyPage } from "./pages/PrivacyPage"
-import { ContactPage } from "./pages/ContactPage"
+
+// Pages
+import { Home } from "./pages/home/Home"
+import { SignInPage } from "./pages/auth/SignInPage"
+import { SignUpPage } from "./pages/auth/SignUpPage"
+import { TermsPage } from "./pages/legal/TermsPage"
+import { PrivacyPage } from "./pages/legal/PrivacyPage"
+import { ContactPage } from "./pages/home/ContactPage"
+
+// Layout
+import DashboardLayout from "./layouts/DashboardLayout"
+
+// Navigation
+import { adminNavigation, clientNavigation } from "./components/dashboard/navigation"
 
 // Admin Dashboard Pages
 import AdminDashboardPage from "./pages/dashboard/admin/DashboardPage"
@@ -18,11 +26,7 @@ import ClientDashboardPage from "./pages/dashboard/client/DashboardPage"
 import ClientReportsPage from "./pages/dashboard/client/ReportsPage"
 import ClientSettingsPage from "./pages/dashboard/client/SettingsPage"
 
-// Layouts
-import DashboardLayout from "./layouts/DashboardLayout"
-
 // Navigation
-import { adminNavigation, clientNavigation } from "./components/dashboard/navigation"
 
 function App() {
   return (

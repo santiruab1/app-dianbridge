@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import Hero from '../components/Hero'
-import Navbar from '../components/Navbar'
-import Highlights from '../components/Highlights'
-import Features from '../components/Features'
-import Pricing from '../components/Pricing'
-import FAQ from '../components/FAQ'
-import Footer from '../components/Footer'
+import Hero from '../../components/home/Hero'
+import Navbar from '../../components/home/Navbar'
+import Highlights from '../../components/home/Highlights'
+import Features from '../../components/home/Features'
+import Pricing from '../../components/home/Pricing'
+import FAQ from '../../components/home/FAQ'
+import Footer from '../../components/home/Footer'
 
 export const Home = () => {
   const location = useLocation();
