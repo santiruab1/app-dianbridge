@@ -1,13 +1,100 @@
-# React + Vite
+# DianBridge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DianBridge es una plataforma web que facilita la gestión y el cumplimiento de obligaciones tributarias, proporcionando una interfaz moderna y fácil de usar para empresas y contadores.
 
-Currently, two official plugins are available:
+## Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 Autenticación segura y gestión de usuarios
+- 📊 Panel de control personalizado para clientes y administradores
+- 📋 Gestión de reportes y documentos tributarios
+- 📱 Diseño responsive y moderno
+- 🔔 Sistema de notificaciones para obligaciones pendientes
+- 📈 Seguimiento en tiempo real de procesos tributarios
 
-## Expanding the ESLint configuration
+## Tecnologías Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# app-dianbridge
+- ⚛️ React
+- 🛠️ Vite
+- 🎨 Tailwind CSS
+- 🔄 React Router DOM
+- 📦 Otros paquetes:
+  - React Icons
+  - PostCSS
+  - ESLint
+
+## Estructura del Proyecto
+
+```
+src/
+  ├── components/          # Componentes reutilizables
+  │   ├── auth/           # Componentes de autenticación
+  │   ├── dashboard/      # Componentes del panel de control
+  │   ├── home/           # Componentes de la página principal
+  │   └── legal/          # Componentes de páginas legales
+  ├── layouts/            # Layouts de la aplicación
+  ├── pages/              # Páginas principales
+  └── assets/             # Recursos estáticos
+```
+
+## Instalación
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/tu-usuario/dianbridge.git
+cd dianbridge
+```
+
+2. Instalar dependencias:
+```bash
+npm install
+```
+
+3. Iniciar el servidor de desarrollo:
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en `http://localhost:5173`
+
+## Scripts Disponibles
+
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Crea la versión de producción
+- `npm run lint` - Ejecuta el linter
+- `npm run preview` - Vista previa de la versión de producción
+
+## Configuración de Desarrollo
+
+El proyecto utiliza:
+- Vite para un desarrollo rápido con HMR (Hot Module Replacement)
+- ESLint para mantener la calidad del código
+- Prettier para formateo consistente
+- Tailwind CSS para estilos modernos y responsivos
+
+## Entorno de Producción
+
+Para construir la versión de producción:
+
+```bash
+npm run build
+```
+
+Esto generará una carpeta `dist` con los archivos optimizados listos para producción.
+
+## Contribución
+
+1. Fork el proyecto
+2. Crea una rama para tu función: `git checkout -b feature/nueva-funcion`
+3. Commit tus cambios: `git commit -m 'Añade nueva función'`
+4. Push a la rama: `git push origin feature/nueva-funcion`
+5. Abre un Pull Request
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## Contacto
+
+- Email: soporte@dianbridge.com
+- LinkedIn: [DianBridge](https://www.linkedin.com/company/dianbridge)
+- Sitio web: [https://www.dianbridge.com](https://www.dianbridge.com)
