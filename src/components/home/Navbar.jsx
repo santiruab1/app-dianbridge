@@ -38,6 +38,7 @@ function Navbar({ onSectionClick }) {
   };
 
   const getDashboardLink = () => {
+    // Treat 'user' role as 'client' for dashboard redirection
     return userRole === 'admin' ? '/dashboard/admin' : '/dashboard/client';
   };
 

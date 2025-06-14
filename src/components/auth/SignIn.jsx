@@ -41,6 +41,10 @@ export default function SignIn() {
         } else if (email === "cliente@dianbridge.com" && password === "123456") {
           localStorage.setItem("userRole", "client");
           navigate("/dashboard/client");
+        } else if (email === "user@dianbridge.com" && password === "123456") {
+          // If the DB role is 'user', treat as client and redirect to client dashboard
+          localStorage.setItem("userRole", "user");
+          navigate("/dashboard/client");
         } else {
           setLoginError("Credenciales inválidas");
         }
