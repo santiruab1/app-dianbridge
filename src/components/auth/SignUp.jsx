@@ -51,10 +51,16 @@ export default function SignUp() {
     e.preventDefault();
     if (validate()) {
       try {
+        // Convertir username y email a minúsculas antes de enviar
+        const payload = {
+          username: username.toLowerCase(),
+          email: email.toLowerCase(),
+          password
+        };
         const response = await fetch('http://localhost:8080/api/auth/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, email, password })
+          body: JSON.stringify(payload)
         });
         if (!response.ok) {
           setEmailError('Error al registrarse');
