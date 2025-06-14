@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiSave, FiLock, FiMail, FiBell } from 'react-icons/fi';
+import Swal from 'sweetalert2';
 
 const AccountSettings = () => {
   const [profile, setProfile] = useState({
@@ -69,8 +70,20 @@ const AccountSettings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para guardar los cambios
-    alert('Cambios guardados');
+      Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: 'success',
+      title: 'Cambios guardados correctamente.',
+      showConfirmButton: false,
+      timer: 2500,
+      timerProgressBar: true,
+      background: '#fff',
+      color: '#85C8F2',
+      customClass: {
+        popup: 'shadow-lg rounded-xl'
+      }
+    });
   };
 
   return (

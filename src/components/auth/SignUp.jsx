@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 export default function SignUp() {
   const location = useLocation();
@@ -64,11 +65,34 @@ export default function SignUp() {
         });
         if (!response.ok) {
           setEmailError('Error al registrarse');
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se pudo completar el registro.',
+            confirmButtonColor: '#2563eb', // primary
+            background: '#fff',
+            color: '#1e293b',
+          });
           return;
         }
-        alert('¡Registro exitoso!');
+        Swal.fire({
+          icon: 'success',
+          title: '¡Registro exitoso!',
+          text: 'Tu cuenta ha sido creada correctamente.',
+          confirmButtonColor: '#2563eb', // primary
+          background: '#fff',
+          color: '#1e293b',
+        });
       } catch (error) {
         setEmailError('Error de red o del servidor');
+        Swal.fire({
+          icon: 'error',
+          title: 'Error de red',
+          text: 'No se pudo conectar con el servidor.',
+          confirmButtonColor: '#2563eb',
+          background: '#fff',
+          color: '#1e293b',
+        });
       }
     }
   };
