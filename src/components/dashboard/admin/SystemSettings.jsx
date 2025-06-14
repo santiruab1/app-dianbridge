@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiSave, FiRefreshCw } from 'react-icons/fi';
+import Swal from 'sweetalert2';
 
 const SystemSettings = () => {
   const [settings, setSettings] = useState({
@@ -37,7 +38,20 @@ const SystemSettings = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí iría la lógica para guardar la configuración
-    alert('Configuración guardada');
+    Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: 'success',
+      title: 'Configuración guardada correctamente.',
+      showConfirmButton: false,
+      timer: 2500,
+      timerProgressBar: true,
+      background: '#fff',
+      color: '#1e293b',
+      customClass: {
+        popup: 'shadow-lg rounded-xl'
+      }
+    });
   };
 
   return (
